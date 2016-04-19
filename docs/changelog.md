@@ -10,6 +10,14 @@ pageflow_next_text: Contributing
 
 ## develop branch
 
+Nothing yet.
+
+## v1.2016041901
+
+Released Tuesday 19th April 2016.
+
+## New
+
 * Added support for testing protected and private methods
   - Added `InvokeMethod`
   - Added `MethodIsNotStatic`
