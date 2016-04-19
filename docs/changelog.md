@@ -11,6 +11,7 @@ pageflow_next_text: Contributing
 ## develop branch
 
 * Added support for testing protected and private methods
+  - Added `InvokeMethod`
   - Added `MethodIsNotStatic`
 * Added type-hinting interface for all exceptions we throw
   - Added `UnitTestHelpersException`
