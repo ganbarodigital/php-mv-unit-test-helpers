@@ -7,8 +7,8 @@ pageflow_prev_text: Exceptions
 
 # MethodIsNotStatic
 
-<div class="callout warning" markdown="1">
-Not yet in a tagged version.
+<div class="callout info" markdown="1">
+Since v1.2016041901
 </div>
 
 ## Description
