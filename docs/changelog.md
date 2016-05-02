@@ -10,7 +10,9 @@ pageflow_next_text: Contributing
 
 ## develop branch
 
-Nothing yet.
+### New
+
+* Upgraded to use [`ganbarodigital/php-http-status` version 2](https://ganbarodigital.github.io/php-http-status)
 
 ## v1.2016041901
 
