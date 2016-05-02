@@ -44,14 +44,16 @@
 namespace GanbaroDigital\UnitTestHelpers\V1\Exceptions;
 
 use GanbaroDigital\ExceptionHelpers\V1\BaseExceptions\ParameterisedException;
-use GanbaroDigital\HttpStatus\Specifications\HttpStatusProvider;
-use GanbaroDigital\HttpStatus\StatusProviders\RequestError\UnprocessableEntityStatusProvider;
+use GanbaroDigital\HttpStatus\Interfaces\HttpRuntimeErrorException;
+use GanbaroDigital\HttpStatus\StatusProviders\RuntimeError\UnexpectedErrorStatusProvider;
 
 use RuntimeException;
 
-class MethodIsNotStatic extends ParameterisedException implements UnitTestHelpersException, HttpStatusProvider
+class MethodIsNotStatic
+  extends ParameterisedException
+  implements UnitTestHelpersException, HttpRuntimeErrorException
 {
-    use UnprocessableEntityStatusProvider;
+    use UnexpectedErrorStatusProvider;
 
     /**
      * create a throwable exception

@@ -22,11 +22,11 @@ Since v1.2016041901
 ```php
 // our base class and interface(s)
 use GanbaroDigital\ExceptionHelpers\V1\BaseExceptions\ParameterisedException;
-use GanbaroDigital\HttpStatus\Specifications\HttpStatusProvider;
+use GanbaroDigital\HttpStatus\Interfaces\HttpRuntimeErrorException;
 use GanbaroDigital\UnitTestHelpers\V1\Exceptions\UnitTestHelpersException;
 
 // return types from our method(s)
-use GanbaroDigital\HttpStatus\StatusValues\RequestError\UnprocessableEntityStatus;
+use GanbaroDigital\HttpStatus\StatusValues\RuntimeError\UnexpectedErrorStatusProvider;
 
 // how to import
 use GanbaroDigital\UnitTestHelpers\V1\Exceptions\MethodIsNotStatic;
@@ -34,7 +34,7 @@ use GanbaroDigital\UnitTestHelpers\V1\Exceptions\MethodIsNotStatic;
 // our public interface
 class MethodIsNotStatic
   extends ParameterisedException
-  implements UnitTestHelpersException, HttpStatusProvider
+  implements UnitTestHelpersException, HttpRuntimeErrorException
 {
     /**
      * create a throwable exception
@@ -49,7 +49,7 @@ class MethodIsNotStatic
 
     /**
      * which HTTP status code do we map onto?
-     * @return UnprocessableEntityStatus
+     * @return UnexpectedErrorStatus
      */
     public function getHttpStatus();
 }
@@ -97,13 +97,13 @@ catch(UnitTestHelpersException $e) {
 ```php
 // example 3: catch all exceptions where there was a problem with the
 // parameter(s) passed into the method
-use GanbaroDigital\HttpStatus\Specifications\RequestError;
+use GanbaroDigital\HttpStatus\Interfaces\HttpRuntimeErrorException;
 use GanbaroDigital\UnitTestHelpers\V1\Exceptions\MethodIsNotStatic;
 
 try {
     throw MethodIsNotStatic::newFromClassAndMethod(MyClass::class, 'unhappyMethod');
 }
-catch(RequestError $e) {
+catch(HttpRuntimeErrorException $e) {
     $httpStatus = $e->getHttpStatus();
     // ...
 }
@@ -111,13 +111,13 @@ catch(RequestError $e) {
 
 ```php
 // example 4: catch all exceptions that map onto a HTTP status
-use GanbaroDigital\HttpStatus\Specifications\HttpStatusProvider;
+use GanbaroDigital\HttpStatus\Interfaces\HttpException;
 use GanbaroDigital\UnitTestHelpers\V1\Exceptions\MethodIsNotStatic;
 
 try {
     throw MethodIsNotStatic::newFromClassAndMethod(MyClass::class, 'unhappyMethod');
 }
-catch(HttpStatusProvider $e) {
+catch(HttpException $e) {
     $httpStatus = $e->getHttpStatus();
     // ...
 }
@@ -142,4 +142,4 @@ None at this time.
 
 ## See Also
 
-* [`HttpStatusProvider` interface](http://ganbarodigital.github.io/php-http-status/httpStatusProviders.html)
+* [`HttpRuntimeErrorException` interface](http://ganbarodigital.github.io/php-http-status/reference/Interfaces/HttpRuntimeErrorException.html)
