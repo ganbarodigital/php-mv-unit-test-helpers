@@ -12,6 +12,13 @@ pageflow_next_text: Contributing
 
 Nothing yet.
 
+## v1.2016060502
+
+### New
+
+* Added more support for testing protected and private properties
+  - Added `SetProperty`
+
 ## v1.2016060501
 
 Released Sun 5th June 2016.

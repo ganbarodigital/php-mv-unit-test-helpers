@@ -3,6 +3,8 @@ currentSection: v1
 currentItem: classesandobjects
 pageflow_prev_url: GetProperty.html
 pageflow_prev_text: GetProperty class
+pageflow_next_url: SetProperty.html
+pageflow_next_text: SetProperty class
 ---
 
 # InvokeMethod
