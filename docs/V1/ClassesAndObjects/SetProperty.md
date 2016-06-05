@@ -8,7 +8,7 @@ pageflow_prev_class: InvokeMethod class
 # SetProperty
 
 <div class="callout info">
-Since v1.2016060501
+Since v1.2016060502
 </div>
 
 ## Description

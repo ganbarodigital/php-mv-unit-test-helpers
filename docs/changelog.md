@@ -10,6 +10,10 @@ pageflow_next_text: Contributing
 
 ## develop branch
 
+Nothing yet.
+
+## v1.2016060502
+
 ### New
 
 * Added more support for testing protected and private properties
