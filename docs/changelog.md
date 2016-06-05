@@ -10,7 +10,10 @@ pageflow_next_text: Contributing
 
 ## develop branch
 
-Nothing yet.
+### New
+
+* Added more support for testing protected and private properties
+  - Added `SetProperty`
 
 ## v1.2016060501
 
