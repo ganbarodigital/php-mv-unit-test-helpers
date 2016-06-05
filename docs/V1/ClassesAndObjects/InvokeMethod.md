@@ -1,8 +1,8 @@
 ---
 currentSection: v1
 currentItem: classesandobjects
-pageflow_prev_url: index.html
-pageflow_prev_text: Classes And Objects
+pageflow_prev_url: GetProperty.html
+pageflow_prev_text: GetProperty class
 ---
 
 # InvokeMethod

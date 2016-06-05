@@ -34,40 +34,67 @@
  * POSSIBILITY OF SUCH DAMAGE.
  *
  * @category  Libraries
- * @package   UnitTestHelpers/Exceptions
+ * @package   UnitTestHelpers/ClassesAndObjects
  * @author    Stuart Herbert <stuherbert@ganbarodigital.com>
  * @copyright 2015-present Ganbaro Digital Ltd www.ganbarodigital.com
  * @license   http://www.opensource.org/licenses/bsd-license.php  BSD License
- * @link      http://ganbarodigital.github.io/php-mv-unit-test-helpers
+ * @link      http://code.ganbarodigital.com/php-mv-unit-test-helpers
  */
 
-namespace GanbaroDigital\UnitTestHelpers\V1\Exceptions;
+namespace GanbaroDigital\UnitTestHelpers\V1\ClassesAndObjects;
 
-use GanbaroDigital\ExceptionHelpers\V1\BaseExceptions\ParameterisedException;
-use GanbaroDigital\HttpStatus\Interfaces\HttpRuntimeErrorException;
-use GanbaroDigital\HttpStatus\StatusProviders\RuntimeError\UnexpectedErrorStatusProvider;
+use ReflectionClass;
+use ReflectionObject;
 
-use RuntimeException;
-
-class MethodIsNotStatic
-  extends ParameterisedException
-  implements UnitTestHelpersException, HttpRuntimeErrorException
+class GetProperty
 {
-    use UnexpectedErrorStatusProvider;
+    /**
+     * Get protected/private property of a class
+     *
+     * Use ONLY for testing purposes
+     *
+     * @param string $className
+     *        class that holds the static property
+     * @param string $propertyName
+     *        static property that we want
+     *
+     * @return mixed
+     *         the static property's value
+     */
+    public static function fromClass($className, $propertyName)
+    {
+        // make the method callable
+        $refObj = new ReflectionClass($className);
+        $refProp = $refObj->getProperty($propertyName);
+
+        $refProp->setAccessible(true);
+
+        // return the value
+        return $refProp->getValue();
+    }
 
     /**
-     * create a throwable exception
+     * Get protected/private property of an object
      *
-     * @param  string $className
-     *         the class we were asked to invoke
-     * @param  string $methodName
-     *         the method on $className that was not static
-     * @return MethodIsNotStatic
+     * Use ONLY for testing purposes
+     *
+     * @param object $object
+     *        object that holds the property
+     * @param string $propertyName
+     *        property that we want
+     *
+     * @return mixed
+     *         the object property's value
      */
-    public static function newFromClassAndMethod($className, $methodName)
+    public static function fromObject($object, $propertyName)
     {
-        $msg = "method '%className\$s::%methodName\$s' is not declared as a static method";
-        $data = compact('className', 'methodName');
-        return new static($msg, $data);
+        // make the method callable
+        $refObj = new ReflectionObject($object);
+        $refProp = $refObj->getProperty($propertyName);
+
+        $refProp->setAccessible(true);
+
+        // return the value
+        return $refProp->getValue($object);
     }
 }
