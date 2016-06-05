@@ -50,74 +50,67 @@
                                             <main role="main">
                         <nav class="pageflow">
               <ul>
-                                    <li><a href="GetProperty.html">Prev: GetProperty class</a></li>
-                                                      <li></li>
+                                    <li><a href="index.html">Prev: Classes And Objects</a></li>
+                                                      <li><a href="InvokeMethod.html">Next: </a></li>
                                 </ul>
             </nav>
             
             <article>
-                <h1 id="invokemethod">InvokeMethod</h1>
+                <h1 id="getproperty">GetProperty</h1>
 <div class="callout info">
-<p>Since v1.2016041901</p>
+Since v1.2016060501
 </div>
 <h2 id="description">Description</h2>
-<p>Use <code>InvokeMethod</code> to call a protected or private method.</p>
+<p>Use <code>GetProperty</code> to get the value of a protected or private property. You can use <code>GetProperty</code> on:</p>
+<ul>
+<li>static properties defined in a class, and</li>
+<li>properties that are unique to each object</li>
+</ul>
 <h2 id="public-interface">Public Interface</h2>
-<p><code>InvokeMethod</code> has the following public interface:</p>
-<pre><code class="language-php">// how to import
-use GanbaroDigital\UnitTestHelpers\V1\ClassesAndObjects\InvokeMethod;
+<p><code>GetProperty</code> has the following public interface:</p>
+<pre><code class="language-php">// GetProperty lives in this namespace
+namespace GanbaroDigital\UnitTestHelpers\V1\ClassesAndObjects;
 
-class InvokeMethod
+class GetProperty
 {
     /**
-     * Call protected/private method of a class
+     * Get protected/private property of a class
      *
      * Use ONLY for testing purposes
      *
      * @param string $className
-     *               class we want to call
-     * @param string $methodName
-     *               method we want to call
-     * @param array  $params
-     *               args to pass into the method
+     *        class that holds the static property
+     * @param string $propertyName
+     *        static property that we want
      *
      * @return mixed
-     *         return value from calling $methodName on $classname
+     *         the static property's value
      */
-    public static function onClass($className, $methodName, array $params = array());
+    public static function fromClass($className, $propertyName);
 
     /**
-     * Call protected/private method of an object.
+     * Get protected/private property of an object
      *
      * Use ONLY for testing purposes
      *
      * @param object $object
-     *               object we want to call
-     * @param string $methodName
-     *               method we want to call
-     * @param array  $params
-     *               args to pass into the method
+     *        object that holds the property
+     * @param string $propertyName
+     *        property that we want
      *
      * @return mixed
-     *         return value from calling $methodName on $object
+     *         the object property's value
      */
-    public static function onObject($object, $methodName, array $params = array());
+    public static function fromObject($object, $propertyName);
 }</code></pre>
-<h2 id="throws">Throws</h2>
-<p><code>InvokeMethod</code> can throw the following exception(s):</p>
-<ul>
-<li><a href="../Exceptions/MethodIsNotStatic.html"><code>MethodIsNotStatic</code></a> - if you attempt to use <code>InvokeMethod::onClass</code> to call a non-static method.</li>
-</ul>
 <h2 id="notes">Notes</h2>
 <p>None at this time.</p>
-<h2 id="see-also">See Also</h2>
-<p>Nothing at this time.</p>
             </article>
 
                         <nav class="pageflow">
               <ul>
-                                    <li><a href="GetProperty.html">Prev: GetProperty class</a></li>
-                                                      <li></li>
+                                    <li><a href="index.html">Prev: Classes And Objects</a></li>
+                                                      <li><a href="InvokeMethod.html">Next: </a></li>
                                 </ul>
             </nav>
                     </main>
